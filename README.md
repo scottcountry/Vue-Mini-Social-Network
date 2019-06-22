@@ -1,3 +1,26 @@
+# Test app for InCountry proxy
+
+Run mysql server:
+
+    docker run  -p 3306:3306 --name some-mysql -e MYSQL_ROOT_PASSWORD=admin mysql:latest
+
+Mysql client:
+
+    docker run -it --net=host --rm mysql mysql -h127.0.0.1 -uroot -p
+
+fix root password problem:
+
+    alter user root identified with mysql_native_password by 'admin';    
+
+Create 'vuedemo' database and load db.sql into it.
+
+Start the app:
+
+Setup .env file
+
+    npm start
+
+
 # Single-Page-Social-Network
 A reactive mini-social-network created with Vue!!
 

@@ -111,7 +111,7 @@ app.post('/user/login', async (req, res) => {
   } else {
 
     let [{ userCount, id, password }] = await db.query(
-      'SELECT COUNT(id) as userCount, id, password from users WHERE username=? LIMIT 1',
+      'SELECT COUNT(id) as userCount, id, password from users WHERE username=? group by id LIMIT 1',
       [rusername]
     )
 
